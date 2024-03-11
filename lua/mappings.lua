@@ -3,7 +3,7 @@ require("nvchad.mappings")
 -- add yours here
 
 local map = vim.keymap.set
-local nomap = vim.keymap.del
+-- local nomap = vim.keymap.del
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
@@ -25,8 +25,8 @@ map("n", "<leader>gg", "<cmd> LazyGit <CR>", { desc = "LazyGit Open" })
 map("n", "<leader>ls", "<cmd> Lazy sync <CR>", {desc = "Lazy Sync Config"})
 
 -- nomap("n", "K")
-map({"n","v"}, "J", "5j")
-map({"n","v"}, "K", "5k")
+-- map({"n","v"}, "J", "5j")
+-- map({"n","v"}, "K", "5k")
 
 -- nomap("n", "<S-j>")
 -- ["<leader>hw"] = { "<cmd> HopWord <CR>", "Open HopWord" },
