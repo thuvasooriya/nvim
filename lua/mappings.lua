@@ -23,6 +23,7 @@ map("n", "<leader>tn", "<cmd> tabnext <CR>", { desc = "Tab Switch next" })
 map("n", "<leader>gg", "<cmd> LazyGit <CR>", { desc = "LazyGit Open" })
 
 map("n", "<leader>ls", "<cmd> Lazy sync <CR>", { desc = "Lazy Sync Config" })
+map("n", "<leader>ll", "<cmd> HopWord <CR>", { desc = "Hop" })
 
 map({ "n", "t" }, "<leader>rr", function()
 	local file = vim.fn.expand("%:t")
@@ -88,7 +89,3 @@ end, { desc = "Runner function" })
 -- map("n", "<A-i>", function()
 --   require("nvchad.term").toggle({ pos = "sp", id ='abc' })
 -- end, { desc = "Terminal toggle floating" })
-
--- Disable mappings
--- nomap("i", "<C-k>")
--- nomap("n", "<C-k>")

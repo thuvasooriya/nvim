@@ -46,11 +46,12 @@ return {
 	{
 		"smoka7/hop.nvim",
 		version = "v2.5.1",
-		-- opts = {},
-		-- init = function()
-		--   require("core.utils").load_mappings "hop"
-		-- end,
-		-- lazy = false,
+    cmd = {
+      "HopWord"
+    },
+    config = function ()
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end,
 	},
 
 	{
