@@ -42,7 +42,7 @@ return {
 		-- lazy = false,
 		-- priority = 100,
 	},
-  
+
 	{
 		"smoka7/hop.nvim",
 		version = "v2.5.1",
@@ -71,9 +71,12 @@ return {
 		cmd = {
 			"NvimTreeFocus",
 		},
-		opts = {
-			git = { enable = true },
-		},
+		opts = overrides.nvimtree,
+	},
+
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = overrides.treesitter,
 	},
 
 	{

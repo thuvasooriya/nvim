@@ -22,7 +22,26 @@ map("n", "<leader>tn", "<cmd> tabnext <CR>", { desc = "Tab Switch next" })
 
 map("n", "<leader>gg", "<cmd> LazyGit <CR>", { desc = "LazyGit Open" })
 
-map("n", "<leader>ls", "<cmd> Lazy sync <CR>", {desc = "Lazy Sync Config"})
+map("n", "<leader>ls", "<cmd> Lazy sync <CR>", { desc = "Lazy Sync Config" })
+
+map({ "n", "t" }, "<leader>rr", function()
+	local file = vim.fn.expand("%:t")
+  local fp = vim.fn.expand("%:p:h")
+  local ft = vim.bo.ft
+	require("nvchad.term").runner({
+		id = "run",
+		pos = "sp",
+		cmd = function()
+			local ft_cmds = {
+				python = "python3 " .. file,
+				cpp = "zr " .. file,
+				c = "zr " .. file,
+				zig = "zr " .. file,
+			}
+			return "cd " .. fp .. " && clear && " .. ft_cmds[ft]
+		end,
+	})
+end, { desc = "Runner function" })
 
 -- nomap("n", "K")
 -- map({"n","v"}, "J", "5j")
