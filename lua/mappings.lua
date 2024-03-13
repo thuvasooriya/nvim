@@ -1,7 +1,5 @@
 require("nvchad.mappings")
 
--- add yours here
-
 local map = vim.keymap.set
 -- local nomap = vim.keymap.del
 
@@ -25,10 +23,14 @@ map("n", "<leader>gg", "<cmd> LazyGit <CR>", { desc = "LazyGit Open" })
 map("n", "<leader>ls", "<cmd> Lazy sync <CR>", { desc = "Lazy Sync Config" })
 map("n", "<leader>ll", "<cmd> HopWord <CR>", { desc = "Hop" })
 
-map({ "n", "t" }, "<leader>rr", function()
+-- wip code runner function
+-- TODO: cleanup, safe execution of c and cpp
+-- TODO: execute zig build if build.zig detected in root directory
+
+map({ "n", "t" }, "<C-a>", function()
 	local file = vim.fn.expand("%:t")
-  local fp = vim.fn.expand("%:p:h")
-  local ft = vim.bo.ft
+	local fp = vim.fn.expand("%:p:h")
+	local ft = vim.bo.ft
 	require("nvchad.term").runner({
 		id = "run",
 		pos = "sp",
@@ -42,50 +44,4 @@ map({ "n", "t" }, "<leader>rr", function()
 			return "cd " .. fp .. " && clear && " .. ft_cmds[ft]
 		end,
 	})
-end, { desc = "Runner function" })
-
--- nomap("n", "K")
--- map({"n","v"}, "J", "5j")
--- map({"n","v"}, "K", "5k")
-
--- nomap("n", "<S-j>")
--- ["<leader>hw"] = { "<cmd> HopWord <CR>", "Open HopWord" },
---   n = {
---     ["<leader>ha"] = {
---       function()
---         require("harpoon"):list():append()
---         vim.notify("   Marked file", vim.log.levels.INFO, { title = "Harpoon" })
---       end,
---       "Add Mark",
---       opts = { silent = true },
---     },
---     ["<leader>hh"] = {
---       function()
---         require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
---       end,
---       "Harpoon Menu",
---       opts = { silent = true },
---     },
---     ["<leader>hn"] = {
---       function()
---         require("harpoon"):list():next()
---       end,
---       "Next",
---       opts = { silent = true },
---     },
---     ["<leader>hp"] = {
---       function()
---         require("harpoon"):list():prev()
---       end,
---       "Previous",
---       opts = { silent = true },
---     },
---   },
--- }
-
--- map("n", "<leader>ff", ":Telescope <cr>")
-
--- mapping with a lua function
--- map("n", "<A-i>", function()
---   require("nvchad.term").toggle({ pos = "sp", id ='abc' })
--- end, { desc = "Terminal toggle floating" })
+end, { desc = "Code Runner" })

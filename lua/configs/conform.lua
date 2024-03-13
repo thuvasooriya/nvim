@@ -12,6 +12,7 @@ local options = {
 		zig = { "zigfmt" },
 		cpp = { "clang_format" },
 		c = { "clang_format" },
+		-- sv = { "verible" },
 	},
 }
 

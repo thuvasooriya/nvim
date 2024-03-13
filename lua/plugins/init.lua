@@ -46,13 +46,22 @@ return {
 	{
 		"smoka7/hop.nvim",
 		version = "v2.5.1",
-    cmd = {
-      "HopWord"
-    },
-    config = function ()
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end,
+		cmd = {
+			"HopWord",
+		},
+		config = function()
+			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+		end,
 	},
+
+	{
+		"williamboman/mason.nvim",
+		opts = overrides.mason,
+	},
+
+	-- {
+	-- 	"williamboman/mason-lspconfig.nvim",
+	-- },
 
 	{
 		"neovim/nvim-lspconfig",
@@ -60,11 +69,6 @@ return {
 			require("nvchad.configs.lspconfig").defaults()
 			require("configs.lspconfig")
 		end,
-	},
-
-	{
-		"williamboman/mason.nvim",
-		opts = overrides.mason,
 	},
 
 	{
